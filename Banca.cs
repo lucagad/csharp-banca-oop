@@ -15,19 +15,25 @@ public class Banca
     }
 
     // Funzione per Aggiungere un nuovo Cliente
-    void AggiungiCliente()
+    public void AggiungiCliente( string codFisc, string nome, string cognome, double stipendio)
     {
+        Cliente nuovoCliente = new Cliente(codFisc);
 
+        nuovoCliente.Nome = nome;
+        nuovoCliente.Cognome = cognome;
+        nuovoCliente.Stipendio = stipendio;
+
+        clienti.Add(nuovoCliente);
     }
 
     // Funzione per Modificare un Cliente
-    void ModificaCliente()
+    public void ModificaCliente()
     {
 
     }
 
     // Funzione per Cercare un Cliente
-    void CercaCliente()
+    public void CercaCliente()
     {
 
     }

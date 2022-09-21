@@ -32,6 +32,7 @@
 //Bonus:
 //visualizzare per ogni cliente, la situazione dei suoi prestiti in formato tabellare.
 
+Banca bancaTest = new Banca("Banca TEST");
 
 int scelta = MenuIniziale();
 
@@ -45,6 +46,33 @@ switch (scelta)
         {
             // Aggiungere un Cliente
             case 1:
+
+                Console.WriteLine(" ");
+                Console.WriteLine(" --- INSERIMENTO CLIENTE --- ");
+                Console.WriteLine(" ");
+                Console.WriteLine("Inserisci il Codice Fiscale");
+                Console.WriteLine(" ");
+
+                string codFiscaleNuovoCliente = Console.ReadLine();
+
+                Console.WriteLine(" ");
+                Console.WriteLine("Inserisci il Nome");
+                Console.WriteLine(" ");
+                string nomeNuovoCliente = Console.ReadLine();
+
+                Console.WriteLine(" ");
+                Console.WriteLine("Inserisci il Cognome");
+                Console.WriteLine(" ");
+                string cognomeNuovoCliente = Console.ReadLine();
+
+                Console.WriteLine(" ");
+                Console.WriteLine("Inserisci lo stipendio");
+                Console.WriteLine(" ");
+                double stipendioNuovoCliente = Convert.ToDouble(Console.ReadLine());
+
+                bancaTest.AggiungiCliente(codFiscaleNuovoCliente, nomeNuovoCliente, cognomeNuovoCliente, stipendioNuovoCliente);
+
+                Console.WriteLine("Cliente Inserito");
 
                 break;
 
