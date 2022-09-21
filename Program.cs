@@ -43,7 +43,7 @@ var date1 = new DateTime(2008, 1, 1, 7, 0, 0);
 var date2 = new DateTime(2008, 11, 1, 7, 0, 0);
 
 bancaTest.AggiungiPrestito(1, "GDDL", 200, 10, date1, date2);
-
+bancaTest.AggiungiPrestito(2, "GDDL", 300, 10, date1, date2);
 
 Console.WriteLine("Benvenuto!");
 Console.WriteLine(" ");
@@ -190,25 +190,8 @@ void avvioProgramma()
                 // Cercare un Prestito
                 case 2:
                     #region
-                    //Console.WriteLine(" ");
-                    //Console.WriteLine(" --- RICERCA CLIENTE --- ");
-                    //Console.WriteLine(" ");
-                    //Console.WriteLine("Inserisci il Codice Fiscale");
-                    //Console.WriteLine(" ");
-
-                    //string codFiscaleRicerca = Console.ReadLine();
-                    //Console.WriteLine(" ");
-
-                    //bancaTest.CercaCliente(codFiscaleRicerca);
-
-                    break;
-                #endregion
-
-                // Ammontare del credito dato ad un cliente un Prestito
-                case 3:
-                    #region
                     Console.WriteLine(" ");
-                    Console.WriteLine(" --- TOTALE PRESTITI CLIENTE --- ");
+                    Console.WriteLine(" --- PRESTITI CONCESSI AL CLIENTE --- ");
                     Console.WriteLine(" ");
                     Console.WriteLine("Inserisci il Codice Fiscale");
                     Console.WriteLine(" ");
@@ -216,8 +199,29 @@ void avvioProgramma()
                     string codFiscaleRicerca = Console.ReadLine();
                     Console.WriteLine(" ");
 
-                    Console.WriteLine("TOTALE CONCESSO: " + bancaTest.TotalePrestiti(codFiscaleRicerca) + " €");
+                    bancaTest.StampaPrestitiConcessi(codFiscaleRicerca);
+                    Console.WriteLine("--- FINE RICERCA ---");
                     Console.WriteLine(" ");
+                    avvioProgramma();
+                    break;
+                #endregion
+
+                // Ammontare del credito dato ad un cliente un Prestito
+                case 3:
+                    #region
+                    Console.WriteLine(" ");
+                    Console.WriteLine(" --- TOTALE PRESTITI CONCESSI --- ");
+                    Console.WriteLine(" ");
+                    Console.WriteLine("Inserisci il Codice Fiscale:");
+                    Console.WriteLine(" ");
+
+                    string codFiscaleTotalePrestito = Console.ReadLine();
+                    Console.WriteLine(" ");
+
+                    Console.WriteLine("TOTALE CREDITO CONCESSO: " + bancaTest.TotalePrestiti(codFiscaleTotalePrestito) + " €");
+                    Console.WriteLine(" ");
+
+                    
                     avvioProgramma();
                     break;
                 #endregion

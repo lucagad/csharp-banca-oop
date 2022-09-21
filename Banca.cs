@@ -64,7 +64,6 @@ public class Banca
 
     }
 
-
     // Funzione per Aggiungere un nuovo Prestito
     public void AggiungiPrestito(int countPrestiti, string codFisc, double totaleCredito, int rate, DateTime dataInizio, DateTime dataFine)
     {
@@ -75,7 +74,6 @@ public class Banca
 
         prestitiConcessi.Add(nuovoPrestito);
     }
-
 
     // Funzione per restituire il totale dei prestiti concessi ad un cliente
     public double TotalePrestiti(string codFisc)
@@ -95,4 +93,31 @@ public class Banca
 
     }
 
+
+    // Stampa tutti i prestiti di un cliente
+    public void StampaPrestitiConcessi( string codFiscale)
+    {
+        Console.WriteLine("------------");
+        Console.WriteLine("--- LISTA DEI PRESTITI CONCESSI ---");
+        
+
+        foreach (var prestito in prestitiConcessi)
+        {
+            if (prestito.Cliente == codFiscale)
+            {
+                Console.WriteLine(" ");
+                Console.WriteLine("------------");
+                Console.WriteLine("ID: " + prestito.ID);
+                Console.WriteLine("COD.FISCALE: " + prestito.Cliente);
+                Console.WriteLine("TOTALE CREDITO: " + prestito.TotaleCredito);
+                Console.WriteLine("NUMERO RATE: " + prestito.Rata);
+                Console.WriteLine("DATA INIZIO: " + prestito.DataInizio);
+                Console.WriteLine("DATA FINE: " + prestito.DataFine);
+                Console.WriteLine("------------");
+            }
+        }
+
+        Console.WriteLine(" ");
+        
+    }
 }
