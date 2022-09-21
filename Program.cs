@@ -31,3 +31,20 @@
 
 //Bonus:
 //visualizzare per ogni cliente, la situazione dei suoi prestiti in formato tabellare.
+
+
+MenuIniziale();
+
+
+// Menu inziale
+int MenuIniziale()
+{
+    Console.WriteLine("Benvenuto!");
+    Console.WriteLine("Cosa vuoi fare?");
+    Console.WriteLine("1 - Gestione Clienti");
+    Console.WriteLine("2 - Gestione Prestiti");
+
+    int sceltaMenu = Convert.ToInt32(Console.ReadLine());
+
+    return sceltaMenu;
+}
