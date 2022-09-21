@@ -103,8 +103,22 @@ void avvioProgramma()
                 case 2:
                     #region
                     Console.WriteLine(" ");
-                    Console.WriteLine(" --- FUNZIONE NON ANCORA IMPLEMENTATA --- ");
+                    Console.WriteLine(" --- MODIFICA STIPENDIO CLIENTE --- ");
                     Console.WriteLine(" ");
+                    Console.WriteLine("Inserisci il Codice Fiscale");
+                    Console.WriteLine(" ");
+
+                    string codFiscaleModifica = Console.ReadLine();
+
+                    Console.WriteLine(" ");
+                    Console.WriteLine("Inserisci il nuovo stipendio");
+                    Console.WriteLine(" ");
+
+                    double stipendioModifica = Convert.ToDouble(Console.ReadLine());
+
+
+                    bancaTest.ModificaCliente(codFiscaleModifica, stipendioModifica);
+
 
                     avvioProgramma();
                     break;
@@ -123,7 +137,8 @@ void avvioProgramma()
                     Console.WriteLine(" ");
 
                     bancaTest.CercaCliente(codFiscaleRicerca);
-                    
+
+                    avvioProgramma();
                     break;
                     #endregion
 
@@ -293,7 +308,7 @@ int MenuGestioneCliente()
     Console.WriteLine(" ");
     Console.WriteLine("Cosa vuoi fare?");
     Console.WriteLine("1 - Aggiungere un Cliente");
-    Console.WriteLine("2 - Modificare un Cliente");
+    Console.WriteLine("2 - Modificare Stipendio di un Cliente");
     Console.WriteLine("3 - Cercare un Cliente");
     Console.WriteLine(" ");
 

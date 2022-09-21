@@ -25,9 +25,42 @@ public class Banca
     }
 
     // Funzione per Modificare un Cliente
-    public void ModificaCliente()
+    public void ModificaCliente(string codFisc,double nuovoStipendio)
     {
+        Console.WriteLine(" ");
+        Console.WriteLine("--- RISULTATO RICERCA ---");
+        bool risultato = false;
 
+
+        foreach (var cliente in clienti)
+        {
+            if (cliente.CodFiscale == codFisc)
+            {
+
+                Console.WriteLine(" ");
+                Console.WriteLine("------------");
+                Console.WriteLine("COD.FISCALE: " + cliente.CodFiscale);
+                Console.WriteLine("PRECEDENTE STIPENDIO: " + cliente.Stipendio + " €");
+                Console.WriteLine("------------");
+                cliente.Stipendio = nuovoStipendio;
+
+                Console.WriteLine("");
+                Console.WriteLine("--- NUOVI DATI ---");
+                Console.WriteLine("COD.FISCALE: " + cliente.CodFiscale);
+                Console.WriteLine("NUOVO STIPENDIO: " + cliente.Stipendio + " €");
+                Console.WriteLine(" ");
+
+                risultato = true;
+                break;
+            }
+
+        }
+
+        if (risultato == false)
+        {
+            Console.WriteLine(" ");
+            Console.WriteLine("La Ricerca non ha prodotto un risultato");
+        }
     }
 
     // Funzione per Cercare un Cliente
@@ -48,10 +81,11 @@ public class Banca
                 Console.WriteLine("NOME: " + cliente.Nome);
                 Console.WriteLine("COGNOME: " + cliente.Cognome);
                 Console.WriteLine("COD.FISCALE: " + cliente.CodFiscale);
-                Console.WriteLine("STIPENDIO: " + cliente.Stipendio);
+                Console.WriteLine("STIPENDIO: " + cliente.Stipendio + " €");
                 Console.WriteLine("------------");
 
                 risultato = true;
+                break;
             }
 
         }
