@@ -73,9 +73,26 @@ public class Banca
         nuovoPrestito.DataInizio = dataInizio;
         nuovoPrestito.DataFine = dataFine;
 
-
         prestitiConcessi.Add(nuovoPrestito);
     }
 
+
+    // Funzione per restituire il totale dei prestiti concessi ad un cliente
+    public double TotalePrestiti(string codFisc)
+    {
+        double totaleConcesso = 0;
+
+        foreach (var prestito in prestitiConcessi)
+        {
+            if (prestito.Cliente == codFisc)
+            {
+                totaleConcesso += prestito.TotaleCredito;
+            }
+
+        }
+
+        return totaleConcesso;
+
+    }
 
 }

@@ -39,6 +39,12 @@ bancaTest.AggiungiCliente("GDDS", "Simone", "Gad", 1000);
 bancaTest.AggiungiCliente("GDDF", "Francesco", "Gad", 800);
 
 
+var date1 = new DateTime(2008, 1, 1, 7, 0, 0);
+var date2 = new DateTime(2008, 11, 1, 7, 0, 0);
+
+bancaTest.AggiungiPrestito(1, "GDDL", 200, 10, date1, date2);
+
+
 Console.WriteLine("Benvenuto!");
 Console.WriteLine(" ");
 avvioProgramma();
@@ -180,6 +186,7 @@ void avvioProgramma()
                     break;
                 #endregion
 
+
                 // Cercare un Prestito
                 case 2:
                     #region
@@ -195,7 +202,26 @@ void avvioProgramma()
                     //bancaTest.CercaCliente(codFiscaleRicerca);
 
                     break;
-                    #endregion
+                #endregion
+
+                // Ammontare del credito dato ad un cliente un Prestito
+                case 3:
+                    #region
+                    Console.WriteLine(" ");
+                    Console.WriteLine(" --- TOTALE PRESTITI CLIENTE --- ");
+                    Console.WriteLine(" ");
+                    Console.WriteLine("Inserisci il Codice Fiscale");
+                    Console.WriteLine(" ");
+
+                    string codFiscaleRicerca = Console.ReadLine();
+                    Console.WriteLine(" ");
+
+                    Console.WriteLine("TOTALE CONCESSO: " + bancaTest.TotalePrestiti(codFiscaleRicerca) + " €");
+                    Console.WriteLine(" ");
+                    avvioProgramma();
+                    break;
+                #endregion
+
 
                 default:
                     #region
@@ -224,7 +250,6 @@ void avvioProgramma()
 
 
 }
-
 
 
 
@@ -269,6 +294,7 @@ int MenuGestionePrestito()
     Console.WriteLine("Cosa vuoi fare?");
     Console.WriteLine("1 - Aggiungere un Prestito");
     Console.WriteLine("2 - Cercare un Prestito");
+    Console.WriteLine("3 - Calcolo del totale dei prestiti concessi ad un cliente");
     Console.WriteLine(" ");
 
     int sceltaMenu = Convert.ToInt32(Console.ReadLine());
