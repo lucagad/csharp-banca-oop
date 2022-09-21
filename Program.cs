@@ -33,18 +33,95 @@
 //visualizzare per ogni cliente, la situazione dei suoi prestiti in formato tabellare.
 
 
-MenuIniziale();
+int scelta = MenuIniziale();
+
+switch (scelta)
+{
+    // Gestione Clienti
+    case 1:
+        int sceltaMenuCliente = MenuGestioneCliente();
+
+        switch (sceltaMenuCliente)
+        {
+            // Aggiungere un Cliente
+            case 1:
+
+                break;
+
+            // Modificare un Cliente
+            case 2:
+                break;
+
+            // Cercare un Cliente
+            case 3:
+                break;
+
+            default:
+                Console.WriteLine("Scelta errata");
+                break;
+        }
+
+        break;
+
+    // Gestione Prestiti
+    case 2:
+        int sceltaMenuPrestito = MenuGestionePrestito();
+        break;
+
+    default:
+        Console.WriteLine("Scelta errata");
+        break;
+}
 
 
 // Menu inziale
 int MenuIniziale()
 {
     Console.WriteLine("Benvenuto!");
+    Console.WriteLine(" ");
     Console.WriteLine("Cosa vuoi fare?");
     Console.WriteLine("1 - Gestione Clienti");
     Console.WriteLine("2 - Gestione Prestiti");
+    Console.WriteLine(" ");
 
     int sceltaMenu = Convert.ToInt32(Console.ReadLine());
 
     return sceltaMenu;
 }
+
+
+// Menu Gestione Cliente
+int MenuGestioneCliente()
+{
+    Console.WriteLine(" ");
+    Console.WriteLine(" --- GESTIONE CLIENTI --- ");
+    Console.WriteLine(" ");
+    Console.WriteLine("Cosa vuoi fare?");
+    Console.WriteLine("1 - Aggiungere un Cliente");
+    Console.WriteLine("2 - Modificare un Cliente");
+    Console.WriteLine("3 - Cercare un Cliente");
+    Console.WriteLine(" ");
+
+    int sceltaMenu = Convert.ToInt32(Console.ReadLine());
+
+    return sceltaMenu;
+}
+
+
+// Menu Gestione Prestito
+int MenuGestionePrestito()
+{
+    Console.WriteLine(" ");
+    Console.WriteLine(" --- GESTIONE PRESTITI --- ");
+    Console.WriteLine(" ");
+    Console.WriteLine("Cosa vuoi fare?");
+    Console.WriteLine("1 - Aggiungere un Prestito");
+    Console.WriteLine("2 - Cercare un Prestito");
+    Console.WriteLine(" ");
+
+    int sceltaMenu = Convert.ToInt32(Console.ReadLine());
+
+    return sceltaMenu;
+}
+
+
