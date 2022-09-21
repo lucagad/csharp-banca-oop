@@ -28,7 +28,7 @@
 // - aggiungere un prestito. (OK)
 // - effettuare delle ricerche sui prestiti concessi ad un cliente dato il codice fiscale (OK)
 // - sapere, dato il codice fiscale di un cliente, l’ammontare totale dei prestiti concessi. (OK)
-// - sapere, dato il codice fiscale di un cliente, quante rate rimangono da pagare alla data odierna.
+// - sapere, dato il codice fiscale di un cliente, quante rate rimangono da pagare alla data odierna.(OK)
 
 //Per i clienti e per i prestiti si vuole stampare un prospetto riassuntivo con tutti i dati che li caratterizzano in un formato di tipo stringa a piacere.
 
@@ -46,8 +46,11 @@ var date1 = new DateTime(2022, 1, 1, 7, 0, 0);
 
 //Console.WriteLine("Difference in days: " + (date2.Month - date1.Month));
 
-bancaTest.AggiungiPrestito(1, "GDDL", 200, 10, date1);
-bancaTest.AggiungiPrestito(2, "GDDL", 300, 20, date1);
+bancaTest.AggiungiPrestito(1, "GDDL", 200, 12, date1);
+bancaTest.AggiungiPrestito(2, "GDDL", 300, 18, date1);
+
+bancaTest.AggiungiPrestito(3, "GDDS", 300, 16, date1);
+bancaTest.AggiungiPrestito(4, "GDDS", 3000, 36, date1);
 
 Console.WriteLine("Benvenuto!");
 Console.WriteLine(" ");
