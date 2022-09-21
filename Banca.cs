@@ -7,7 +7,6 @@ public class Banca
     public List<Prestito> prestitiConcessi = new List<Prestito>();
 
 
-
     public Banca(string nome)
     {
         Nome = nome;
@@ -26,17 +25,50 @@ public class Banca
         clienti.Add(nuovoCliente);
     }
 
+
+
+
     // Funzione per Modificare un Cliente
     public void ModificaCliente()
     {
 
     }
 
+
+
+
     // Funzione per Cercare un Cliente
-    public void CercaCliente()
+    public void CercaCliente(string codFisc)
     {
+        Console.WriteLine(" ");
+        Console.WriteLine("--- RISULTATO RICERCA ---");
+        bool risultato = false;
+
+
+        foreach (var cliente in clienti)
+        {
+            if (cliente.CodFiscale == codFisc)
+            {
+
+                Console.WriteLine(" ");
+                Console.WriteLine("------------");
+                Console.WriteLine("NOME: " + cliente.Nome);
+                Console.WriteLine("COGNOME: " + cliente.Cognome);
+                Console.WriteLine("COD.FISCALE: " + cliente.CodFiscale);
+                Console.WriteLine("STIPENDIO: " + cliente.Stipendio);
+                Console.WriteLine("------------");
+
+                risultato = true;
+            }
+
+        }
+
+        if (risultato == false)
+        {
+            Console.WriteLine(" ");
+            Console.WriteLine("La Ricerca non ha prodotto un risultato");
+        }
 
     }
 
 }
-

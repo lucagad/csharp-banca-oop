@@ -34,6 +34,10 @@
 
 Banca bancaTest = new Banca("Banca TEST");
 
+bancaTest.AggiungiCliente("GDDL", "Luca", "Gad", 1500);
+bancaTest.AggiungiCliente("GDDS", "Simone", "Gad", 1000);
+bancaTest.AggiungiCliente("GDDF", "Francesco", "Gad", 800);
+
 int scelta = MenuIniziale();
 
 switch (scelta)
@@ -82,6 +86,18 @@ switch (scelta)
 
             // Cercare un Cliente
             case 3:
+
+                Console.WriteLine(" ");
+                Console.WriteLine(" --- RICERCA CLIENTE --- ");
+                Console.WriteLine(" ");
+                Console.WriteLine("Inserisci il Codice Fiscale");
+                Console.WriteLine(" ");
+
+                string codFiscaleRicerca = Console.ReadLine();
+                Console.WriteLine(" ");
+
+                bancaTest.CercaCliente(codFiscaleRicerca);
+
                 break;
 
             default:
@@ -151,5 +167,4 @@ int MenuGestionePrestito()
 
     return sceltaMenu;
 }
-
 
