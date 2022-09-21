@@ -99,7 +99,7 @@ public class Banca
     {
         Console.WriteLine("------------");
         Console.WriteLine("--- LISTA DEI PRESTITI CONCESSI ---");
-        
+        bool prestitoPresente = false;
 
         foreach (var prestito in prestitiConcessi)
         {
@@ -114,7 +114,14 @@ public class Banca
                 Console.WriteLine("DATA INIZIO: " + prestito.DataInizio);
                 Console.WriteLine("DATA FINE: " + prestito.DataFine);
                 Console.WriteLine("------------");
+                prestitoPresente = true;
             }
+        }
+
+        if(prestitoPresente == false)
+        {
+            Console.WriteLine(" ");
+            Console.WriteLine("--- NON SONO PRESENTI PRESTITI ASSOCIATI AL CODICE FISCALE INSERITO ---");
         }
 
         Console.WriteLine(" ");

@@ -1,17 +1,20 @@
 ﻿//Esercizio
 //Sviluppare un’applicazione orientata agli oggetti per gestire i prestiti che una banca concede ai propri clienti.
 
+//OK
 //La banca è caratterizzata da
 // - un nome
 // - un insieme di clienti (una lista)
 // - un insieme di prestiti concessi ai clienti (una lista)
 
+//OK
 //I clienti sono caratterizzati da
 // - nome,
 // - cognome,
 // - codice fiscale
 // - stipendio
 
+//OK
 //I prestiti sono caratterizzati da
 // - ID
 // - intestatario del prestito (il cliente),
@@ -21,10 +24,10 @@
 // - una data fine.
 
 //Per la banca deve essere possibile:
-// - aggiungere, modificare e ricercare un cliente.
-// - aggiungere un prestito.
-// - effettuare delle ricerche sui prestiti concessi ad un cliente dato il codice fiscale
-// - sapere, dato il codice fiscale di un cliente, l’ammontare totale dei prestiti concessi.
+// - aggiungere, modificare e ricercare un cliente. (MANCA MODIFICA CLIENTE)
+// - aggiungere un prestito. (OK)
+// - effettuare delle ricerche sui prestiti concessi ad un cliente dato il codice fiscale (OK)
+// - sapere, dato il codice fiscale di un cliente, l’ammontare totale dei prestiti concessi. (OK)
 // - sapere, dato il codice fiscale di un cliente, quante rate rimangono da pagare alla data odierna.
 
 //Per i clienti e per i prestiti si vuole stampare un prospetto riassuntivo con tutti i dati che li caratterizzano in un formato di tipo stringa a piacere.
@@ -182,7 +185,8 @@ void avvioProgramma()
 
                     Console.WriteLine(" ");
                     Console.WriteLine("Prestito Inserito");
-
+                    Console.WriteLine(" ");
+                    avvioProgramma();
                     break;
                 #endregion
 
@@ -218,10 +222,18 @@ void avvioProgramma()
                     string codFiscaleTotalePrestito = Console.ReadLine();
                     Console.WriteLine(" ");
 
-                    Console.WriteLine("TOTALE CREDITO CONCESSO: " + bancaTest.TotalePrestiti(codFiscaleTotalePrestito) + " €");
-                    Console.WriteLine(" ");
+                    double totaleConcesso = bancaTest.TotalePrestiti(codFiscaleTotalePrestito);
 
-                    
+                    if (totaleConcesso >0)
+                    {
+                        Console.WriteLine("TOTALE CREDITO CONCESSO: " + totaleConcesso + " €");
+                        Console.WriteLine(" ");
+                    }
+                    else
+                    {
+                       Console.WriteLine("-- NON SONO PRESENTI PRESTITI ASSOCIATI AL CODICE FISCALE INSERITO --");
+                    }
+
                     avvioProgramma();
                     break;
                 #endregion
@@ -260,6 +272,8 @@ void avvioProgramma()
 // Menu inziale
 int MenuIniziale()
 {
+    Console.WriteLine(" ");
+    Console.WriteLine("-- MENU INIZIALE -- ");
     Console.WriteLine("Cosa vuoi fare?");
     Console.WriteLine("1 - Gestione Clienti");
     Console.WriteLine("2 - Gestione Prestiti");
