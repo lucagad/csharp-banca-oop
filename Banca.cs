@@ -25,17 +25,11 @@ public class Banca
         clienti.Add(nuovoCliente);
     }
 
-
-
-
     // Funzione per Modificare un Cliente
     public void ModificaCliente()
     {
 
     }
-
-
-
 
     // Funzione per Cercare un Cliente
     public void CercaCliente(string codFisc)

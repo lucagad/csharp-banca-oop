@@ -38,91 +38,108 @@ bancaTest.AggiungiCliente("GDDL", "Luca", "Gad", 1500);
 bancaTest.AggiungiCliente("GDDS", "Simone", "Gad", 1000);
 bancaTest.AggiungiCliente("GDDF", "Francesco", "Gad", 800);
 
-int scelta = MenuIniziale();
 
-switch (scelta)
+Console.WriteLine("Benvenuto!");
+Console.WriteLine(" ");
+avvioProgramma();
+
+
+void avvioProgramma()
 {
-    // Gestione Clienti
-    case 1:
-        int sceltaMenuCliente = MenuGestioneCliente();
+    int scelta = MenuIniziale();
 
-        switch (sceltaMenuCliente)
-        {
-            // Aggiungere un Cliente
-            case 1:
+    switch (scelta)
+    {
+        // Gestione Clienti
+        case 1:
+            int sceltaMenuCliente = MenuGestioneCliente();
 
-                Console.WriteLine(" ");
-                Console.WriteLine(" --- INSERIMENTO CLIENTE --- ");
-                Console.WriteLine(" ");
-                Console.WriteLine("Inserisci il Codice Fiscale");
-                Console.WriteLine(" ");
+            switch (sceltaMenuCliente)
+            {
+                // Aggiungere un Cliente
+                case 1:
 
-                string codFiscaleNuovoCliente = Console.ReadLine();
+                    Console.WriteLine(" ");
+                    Console.WriteLine(" --- INSERIMENTO CLIENTE --- ");
+                    Console.WriteLine(" ");
+                    Console.WriteLine("Inserisci il Codice Fiscale");
+                    Console.WriteLine(" ");
 
-                Console.WriteLine(" ");
-                Console.WriteLine("Inserisci il Nome");
-                Console.WriteLine(" ");
-                string nomeNuovoCliente = Console.ReadLine();
+                    string codFiscaleNuovoCliente = Console.ReadLine();
 
-                Console.WriteLine(" ");
-                Console.WriteLine("Inserisci il Cognome");
-                Console.WriteLine(" ");
-                string cognomeNuovoCliente = Console.ReadLine();
+                    Console.WriteLine(" ");
+                    Console.WriteLine("Inserisci il Nome");
+                    Console.WriteLine(" ");
+                    string nomeNuovoCliente = Console.ReadLine();
 
-                Console.WriteLine(" ");
-                Console.WriteLine("Inserisci lo stipendio");
-                Console.WriteLine(" ");
-                double stipendioNuovoCliente = Convert.ToDouble(Console.ReadLine());
+                    Console.WriteLine(" ");
+                    Console.WriteLine("Inserisci il Cognome");
+                    Console.WriteLine(" ");
+                    string cognomeNuovoCliente = Console.ReadLine();
 
-                bancaTest.AggiungiCliente(codFiscaleNuovoCliente, nomeNuovoCliente, cognomeNuovoCliente, stipendioNuovoCliente);
+                    Console.WriteLine(" ");
+                    Console.WriteLine("Inserisci lo stipendio");
+                    Console.WriteLine(" ");
+                    double stipendioNuovoCliente = Convert.ToDouble(Console.ReadLine());
 
-                Console.WriteLine("Cliente Inserito");
+                    bancaTest.AggiungiCliente(codFiscaleNuovoCliente, nomeNuovoCliente, cognomeNuovoCliente, stipendioNuovoCliente);
 
-                break;
+                    Console.WriteLine("Cliente Inserito");
 
-            // Modificare un Cliente
-            case 2:
-                break;
+                    break;
 
-            // Cercare un Cliente
-            case 3:
+                // Modificare un Cliente
+                case 2:
 
-                Console.WriteLine(" ");
-                Console.WriteLine(" --- RICERCA CLIENTE --- ");
-                Console.WriteLine(" ");
-                Console.WriteLine("Inserisci il Codice Fiscale");
-                Console.WriteLine(" ");
+                    Console.WriteLine(" ");
+                    Console.WriteLine(" --- FUNZIONE NON ANCORA IMPLEMENTATA --- ");
+                    Console.WriteLine(" ");
 
-                string codFiscaleRicerca = Console.ReadLine();
-                Console.WriteLine(" ");
+                    avvioProgramma();
+                    break;
 
-                bancaTest.CercaCliente(codFiscaleRicerca);
+                // Cercare un Cliente
+                case 3:
 
-                break;
+                    Console.WriteLine(" ");
+                    Console.WriteLine(" --- RICERCA CLIENTE --- ");
+                    Console.WriteLine(" ");
+                    Console.WriteLine("Inserisci il Codice Fiscale");
+                    Console.WriteLine(" ");
 
-            default:
-                Console.WriteLine("Scelta errata");
-                break;
-        }
+                    string codFiscaleRicerca = Console.ReadLine();
+                    Console.WriteLine(" ");
 
-        break;
+                    bancaTest.CercaCliente(codFiscaleRicerca);
 
-    // Gestione Prestiti
-    case 2:
-        int sceltaMenuPrestito = MenuGestionePrestito();
-        break;
+                    break;
 
-    default:
-        Console.WriteLine("Scelta errata");
-        break;
+                default:
+                    Console.WriteLine("Scelta errata");
+                    break;
+            }
+
+            break;
+
+        // Gestione Prestiti
+        case 2:
+            int sceltaMenuPrestito = MenuGestionePrestito();
+            break;
+
+        default:
+            Console.WriteLine("Scelta errata");
+            break;
+    }
+
+
 }
+
+
 
 
 // Menu inziale
 int MenuIniziale()
 {
-    Console.WriteLine("Benvenuto!");
-    Console.WriteLine(" ");
     Console.WriteLine("Cosa vuoi fare?");
     Console.WriteLine("1 - Gestione Clienti");
     Console.WriteLine("2 - Gestione Prestiti");
