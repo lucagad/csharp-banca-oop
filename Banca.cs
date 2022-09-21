@@ -99,12 +99,12 @@ public class Banca
     }
 
     // Funzione per Aggiungere un nuovo Prestito
-    public void AggiungiPrestito(int countPrestiti, string codFisc, double totaleCredito, int rate, DateTime dataInizio, DateTime dataFine)
+    public void AggiungiPrestito(int countPrestiti, string codFisc, double totaleCredito, int rate, DateTime dataInizio)
     {
         Prestito nuovoPrestito = new Prestito(countPrestiti, codFisc, totaleCredito);
         nuovoPrestito.Rata = rate;
         nuovoPrestito.DataInizio = dataInizio;
-        nuovoPrestito.DataFine = dataFine;
+        nuovoPrestito.DataFine = dataInizio.AddMonths(rate);
 
         prestitiConcessi.Add(nuovoPrestito);
     }
@@ -131,6 +131,7 @@ public class Banca
     // Stampa tutti i prestiti di un cliente
     public void StampaPrestitiConcessi( string codFiscale)
     {
+        
         Console.WriteLine("------------");
         Console.WriteLine("--- LISTA DEI PRESTITI CONCESSI ---");
         bool prestitoPresente = false;
@@ -147,6 +148,8 @@ public class Banca
                 Console.WriteLine("NUMERO RATE: " + prestito.Rata);
                 Console.WriteLine("DATA INIZIO: " + prestito.DataInizio);
                 Console.WriteLine("DATA FINE: " + prestito.DataFine);
+                Console.WriteLine(" ");
+                Console.WriteLine("RATE RESIDUE AD OGGI: " + rateResidue(prestito.DataFine));
                 Console.WriteLine("------------");
                 prestitoPresente = true;
             }
@@ -161,4 +164,18 @@ public class Banca
         Console.WriteLine(" ");
         
     }
+
+    public int rateResidue( DateTime dataFine)
+    {
+        int rate = 0;
+        DateTime oggi = DateTime.Today;
+
+        rate = (dataFine.Subtract(oggi).Days) / 30;
+
+        return rate;
+    }
+
+
+
+
 }

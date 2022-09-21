@@ -24,7 +24,7 @@
 // - una data fine.
 
 //Per la banca deve essere possibile:
-// - aggiungere, modificare e ricercare un cliente. (MANCA MODIFICA CLIENTE)
+// - aggiungere, modificare e ricercare un cliente. (OK)
 // - aggiungere un prestito. (OK)
 // - effettuare delle ricerche sui prestiti concessi ad un cliente dato il codice fiscale (OK)
 // - sapere, dato il codice fiscale di un cliente, l’ammontare totale dei prestiti concessi. (OK)
@@ -42,11 +42,12 @@ bancaTest.AggiungiCliente("GDDS", "Simone", "Gad", 1000);
 bancaTest.AggiungiCliente("GDDF", "Francesco", "Gad", 800);
 
 
-var date1 = new DateTime(2008, 1, 1, 7, 0, 0);
-var date2 = new DateTime(2008, 11, 1, 7, 0, 0);
+var date1 = new DateTime(2022, 1, 1, 7, 0, 0);
 
-bancaTest.AggiungiPrestito(1, "GDDL", 200, 10, date1, date2);
-bancaTest.AggiungiPrestito(2, "GDDL", 300, 10, date1, date2);
+//Console.WriteLine("Difference in days: " + (date2.Month - date1.Month));
+
+bancaTest.AggiungiPrestito(1, "GDDL", 200, 10, date1);
+bancaTest.AggiungiPrestito(2, "GDDL", 300, 20, date1);
 
 Console.WriteLine("Benvenuto!");
 Console.WriteLine(" ");
@@ -189,14 +190,8 @@ void avvioProgramma()
                     Console.WriteLine(" ");
                     DateTime dataInizio = DateTime.Parse(Console.ReadLine());
 
-                    Console.WriteLine(" ");
-                    Console.WriteLine("Inserisci la Data di Fine (MM/DD/YYYY)");
-                    Console.WriteLine(" ");
-                    DateTime dataFine = DateTime.Parse(Console.ReadLine());
-
-
                     int countPrestiti = bancaTest.prestitiConcessi.Count() + 1;
-                    bancaTest.AggiungiPrestito(countPrestiti, codFiscalePrestito, totalePrestito, ratePrestito, dataInizio, dataFine);
+                    bancaTest.AggiungiPrestito(countPrestiti, codFiscalePrestito, totalePrestito, ratePrestito, dataInizio);
 
                     Console.WriteLine(" ");
                     Console.WriteLine("Prestito Inserito");
