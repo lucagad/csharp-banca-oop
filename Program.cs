@@ -52,13 +52,14 @@ void avvioProgramma()
     {
         // Gestione Clienti
         case 1:
+            #region
             int sceltaMenuCliente = MenuGestioneCliente();
 
             switch (sceltaMenuCliente)
             {
                 // Aggiungere un Cliente
                 case 1:
-
+                    #region
                     Console.WriteLine(" ");
                     Console.WriteLine(" --- INSERIMENTO CLIENTE --- ");
                     Console.WriteLine(" ");
@@ -87,20 +88,22 @@ void avvioProgramma()
                     Console.WriteLine("Cliente Inserito");
 
                     break;
+                    #endregion
 
                 // Modificare un Cliente
                 case 2:
-
+                    #region
                     Console.WriteLine(" ");
                     Console.WriteLine(" --- FUNZIONE NON ANCORA IMPLEMENTATA --- ");
                     Console.WriteLine(" ");
 
                     avvioProgramma();
                     break;
+                    #endregion
 
                 // Cercare un Cliente
                 case 3:
-
+                    #region
                     Console.WriteLine(" ");
                     Console.WriteLine(" --- RICERCA CLIENTE --- ");
                     Console.WriteLine(" ");
@@ -111,24 +114,112 @@ void avvioProgramma()
                     Console.WriteLine(" ");
 
                     bancaTest.CercaCliente(codFiscaleRicerca);
-
+                    
                     break;
+                    #endregion
 
                 default:
+                    #region
+                    Console.WriteLine(" ");
                     Console.WriteLine("Scelta errata");
+                    Console.WriteLine("Verrai riportato al menù principale.");
+                    Console.WriteLine(" ");
+                    avvioProgramma();
                     break;
+                    #endregion
             }
 
             break;
+            #endregion
 
         // Gestione Prestiti
         case 2:
+            #region
             int sceltaMenuPrestito = MenuGestionePrestito();
+
+            switch (sceltaMenuPrestito)
+            {
+                // Aggiungere un Prestito
+                case 1:
+                    #region
+                    Console.WriteLine(" ");
+                    Console.WriteLine(" --- INSERIMENTO PRESTITO --- ");
+                    Console.WriteLine(" ");
+                    Console.WriteLine("Inserisci il Codice Fiscale del cliente");
+                    Console.WriteLine(" ");
+
+                    string codFiscalePrestito = Console.ReadLine();
+
+                    Console.WriteLine(" ");
+                    Console.WriteLine("Inserisci il Totale del prestito");
+                    Console.WriteLine(" ");
+                    double totalePrestito = Convert.ToDouble(Console.ReadLine());
+
+                    Console.WriteLine(" ");
+                    Console.WriteLine("Inserisci il Numero di Rate");
+                    Console.WriteLine(" ");
+                    int ratePrestito = Convert.ToInt32(Console.ReadLine());
+
+                    Console.WriteLine(" ");
+                    Console.WriteLine("Inserisci la Data d'Inizio (MM/DD/YYYY)");
+                    Console.WriteLine(" ");
+                    DateTime dataInizio = DateTime.Parse(Console.ReadLine());
+
+                    Console.WriteLine(" ");
+                    Console.WriteLine("Inserisci la Data di Fine (MM/DD/YYYY)");
+                    Console.WriteLine(" ");
+                    DateTime dataFine = DateTime.Parse(Console.ReadLine());
+
+
+                    int countPrestiti = bancaTest.prestitiConcessi.Count() + 1;
+                    bancaTest.AggiungiPrestito(countPrestiti, codFiscalePrestito, totalePrestito, ratePrestito, dataInizio, dataFine);
+
+                    Console.WriteLine(" ");
+                    Console.WriteLine("Prestito Inserito");
+
+                    break;
+                #endregion
+
+                // Cercare un Prestito
+                case 2:
+                    #region
+                    //Console.WriteLine(" ");
+                    //Console.WriteLine(" --- RICERCA CLIENTE --- ");
+                    //Console.WriteLine(" ");
+                    //Console.WriteLine("Inserisci il Codice Fiscale");
+                    //Console.WriteLine(" ");
+
+                    //string codFiscaleRicerca = Console.ReadLine();
+                    //Console.WriteLine(" ");
+
+                    //bancaTest.CercaCliente(codFiscaleRicerca);
+
+                    break;
+                    #endregion
+
+                default:
+                    #region
+                    Console.WriteLine(" ");
+                    Console.WriteLine("Scelta errata");
+                    Console.WriteLine("Verrai riportato al menù principale.");
+                    Console.WriteLine(" ");
+                    avvioProgramma();
+                    break;
+                    #endregion
+            }
+
             break;
+            #endregion
 
         default:
+            #region
+            Console.WriteLine(" ");
             Console.WriteLine("Scelta errata");
+            Console.WriteLine("Verrai riportato al menù principale.");
+            Console.WriteLine(" ");
+            avvioProgramma();
             break;
+            #endregion
     }
 
 

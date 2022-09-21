@@ -10,7 +10,6 @@ public class Banca
     public Banca(string nome)
     {
         Nome = nome;
-
     }
 
     // Funzione per Aggiungere un nuovo Cliente
@@ -64,5 +63,19 @@ public class Banca
         }
 
     }
+
+
+    // Funzione per Aggiungere un nuovo Prestito
+    public void AggiungiPrestito(int countPrestiti, string codFisc, double totaleCredito, int rate, DateTime dataInizio, DateTime dataFine)
+    {
+        Prestito nuovoPrestito = new Prestito(countPrestiti, codFisc, totaleCredito);
+        nuovoPrestito.Rata = rate;
+        nuovoPrestito.DataInizio = dataInizio;
+        nuovoPrestito.DataFine = dataFine;
+
+
+        prestitiConcessi.Add(nuovoPrestito);
+    }
+
 
 }
